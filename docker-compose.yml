@@ -1,2 +1,10 @@
-varnish-vmod-rpm-builder:
-  build: .
+version: '3.7'
+services:
+  vmod-rpm-builder:
+    build: .
+    volumes:
+    - ./SPECS:/root/rpmbuild/SPECS
+    - ./SOURCES:/root/rpmbuild/SOURCES
+    - ./rpms:/root/rpmbuild/RPMS
+    - ./entrypoint.sh:/entrypoint.sh
+    # entrypoint: ["/bin/tail", "-f", "/dev/null"]
